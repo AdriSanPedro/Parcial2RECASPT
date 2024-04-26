@@ -12,14 +12,14 @@ public class CarritoCompra {
     public void addProducto(Producto producto) {
         productos.add(producto);
         total += producto.getPrecio() * producto.getCantidad();
-        System.out.println(producto.getNombre() + " añadido al carrito. Cantidad: " + producto.getCantidad() + ". Precio total: $" + producto.getPrecio() * producto.getCantidad());
+        System.out.println(producto.getNombre() + Mensajes.PRODUCTO_ANADIDO +" Cantidad: " + producto.getCantidad() + ". Precio total: $" + producto.getPrecio() * producto.getCantidad());
     }
 
     public void showProductos() {
         if (productos.isEmpty()) {
-            System.out.println("El carrito está vacío.");
+            System.out.println(Mensajes.CARRITO_VACIO);
         } else {
-            System.out.println("Productos en el carrito:");
+            System.out.println(Mensajes.PRODUCTOS_EN_CARRITO);
             for (Producto producto : productos) {
                 System.out.println("- " + producto.getNombre() + " (Cantidad: " + producto.getCantidad() + ")");
             }
@@ -29,9 +29,18 @@ public class CarritoCompra {
     public void clearProductos(){
     productos.clear();
     total = 0.0;
-    System.out.println("Carrito vaciado.");
+    System.out.println(Mensajes.CARRITO_VACIADO);
     showProductos();
     }
+
+    static class Mensajes {
+        static final String PRODUCTO_ANADIDO = " añadido al carrito.";
+        static final String CARRITO_VACIO = "El carrito está vacío.";
+        static final String PRODUCTOS_EN_CARRITO = "Productos en el carrito:";
+        static final String CARRITO_VACIADO = "Carrito vaciado.";
+    }
+
+    
 
 
 }
