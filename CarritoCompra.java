@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 
 public class CarritoCompra {
-    private ArrayList<Producto> productos;
-    private double total;
+    private static ArrayList<Producto> productos;
+    private static double total;
 
     public CarritoCompra() {
         productos = new ArrayList<>();
@@ -10,8 +11,8 @@ public class CarritoCompra {
 
     public void agregarProducto(Producto producto) {
         productos.add(producto);
-        total += producto.precio * producto.cantidad;
-        System.out.println(producto.nombre + " añadido al carrito. Cantidad: " + producto.cantidad + ". Precio total: $" + producto.precio * producto.cantidad);
+        total += producto.getPrecio() * producto.getCantidad();
+        System.out.println(producto.getNombre() + " añadido al carrito. Cantidad: " + producto.getCantidad() + ". Precio total: $" + producto.getPrecio() * producto.getCantidad());
     }
 
     public void mostrarProductos() {
@@ -20,7 +21,7 @@ public class CarritoCompra {
         } else {
             System.out.println("Productos en el carrito:");
             for (Producto producto : productos) {
-                System.out.println("- " + producto.nombre + " (Cantidad: " + producto.cantidad + ")");
+                System.out.println("- " + producto.getNombre() + " (Cantidad: " + producto.getCantidad() + ")");
             }
             System.out.println("Total: $" + total);
         }
